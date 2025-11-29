@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <strong>Production-ready skills for dymamic content management, AI-assisted SEO optimization, and internal / external links management</strong>
+  <strong>Production-ready skills for dynamic content management, AI-assisted SEO optimization, and internal / external links management</strong>
 </p>
 
 <p align="center">
