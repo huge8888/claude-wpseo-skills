@@ -4,11 +4,11 @@ How the Assess-Decide-Do framework shaped these skills.
 
 ## What is the ADD Framework?
 
-The [Assess-Decide-Do (ADD) Framework]()https://dragosroua.com/assess-decide-do-framework/ is a human cognitive framework created by Dragos Roua. When [integrated with Claude](https://github.com/dragosroua/claude-assess-decide-do-mega-prompt), it creates "cognitive alignment" - the AI recognizes whether you're exploring, deciding, or executing, and responds appropriately.
+The [Assess-Decide-Do (ADD) Framework](https://dragosroua.com/assess-decide-do-framework/) is a human cognitive framework created by Dragos Roua. When [integrated with Claude](https://github.com/dragosroua/claude-assess-decide-do-mega-prompt), it creates "cognitive alignment" - the AI recognizes whether you're exploring, deciding, or executing, and responds appropriately.
 
 **Three Realms:**
 - **Assess:** Gathering information, exploring possibilities, no commitment pressure (adding and editing, system "overload")
-- **Decide:** Making choices, allocating resources, setting intentions (resource allocation, no editing)
+- **Decide:** Making choices, resources management, setting intentions (resource allocation, no editing)
 - **Do:** Executing, completing, manifesting what was decided (execution, "unloading" the system to the next lieveline)
 
 ## How ADD Shaped These Skills
