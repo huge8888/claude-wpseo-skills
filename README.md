@@ -1,145 +1,74 @@
+# Claude SEO Skills for WordPress & WooCommerce
+
+**Automate your Rank Math SEO optimization with AI-powered batch updates**
+
 <p align="center">
+  <img src="https://img.shields.io/badge/Rank_Math_SEO-Compatible-4CAF50?style=for-the-badge" alt="Rank Math Compatible" />
+  <img src="https://img.shields.io/badge/WooCommerce-Supported-96588A?style=for-the-badge&logo=woocommerce&logoColor=white" alt="WooCommerce Supported" />
   <img src="https://img.shields.io/badge/Claude_Code-Skills-5A67D8?style=for-the-badge&logo=anthropic&logoColor=white" alt="Claude Code Skills" />
 </p>
 
-<h1 align="center">Claude Content Skills</h1>
+---
 
-<p align="center">
-  <strong>Production-ready skills for WordPress/WooCommerce SEO optimization and link management with Rank Math SEO</strong>
-</p>
+## What is this?
 
-<p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="MIT License" /></a>
-  <img src="https://img.shields.io/badge/Python-3.10+-blue?logo=python&logoColor=white" alt="Python 3.10+" />
-  <img src="https://img.shields.io/badge/WordPress-6.0+-21759B?logo=wordpress&logoColor=white" alt="WordPress 6.0+" />
-  <img src="https://img.shields.io/badge/WooCommerce-Compatible-96588A?logo=woocommerce&logoColor=white" alt="WooCommerce Compatible" />
-</p>
+This is a **Claude Code skill** that lets you batch-update SEO metadata on your WordPress/WooCommerce site using AI. Instead of manually editing hundreds of product titles and meta descriptions one by one, just tell Claude what you want:
+
+```
+You: "Update all my product meta descriptions to be more compelling and include a call-to-action"
+
+Claude: I'll fetch your products, analyze their current SEO, generate optimized descriptions,
+        show you a preview, and apply the changes after your approval.
+```
+
+### The Problem It Solves
+
+- **Manual SEO updates are tedious** - Updating 500 product descriptions takes days
+- **Rank Math bulk edit is limited** - No AI-powered content generation
+- **Consistency is hard** - Keeping SEO format consistent across all products
+- **Missing SEO fields** - Easy to forget focus keywords or leave descriptions empty
+
+### The Solution
+
+This skill connects Claude directly to your WordPress site via GraphQL, allowing you to:
+
+1. **Analyze** - Scan all posts/products and find SEO issues (missing descriptions, titles too long, no focus keywords)
+2. **Generate** - Let Claude create optimized SEO content based on your product/post content
+3. **Preview** - See before/after comparison before any changes are made
+4. **Apply** - Batch update with progress tracking and the ability to resume if interrupted
 
 ---
 
-## What This Is
+## Who is this for?
 
-A collection of **production-ready Claude Code skills** for WordPress/WooCommerce sites using Rank Math SEO:
+- **WooCommerce store owners** with hundreds of products needing SEO optimization
+- **WordPress site managers** wanting to improve blog post SEO at scale
+- **SEO professionals** managing multiple WordPress sites
+- **Anyone using Rank Math SEO** who wants AI-powered batch optimization
 
-| Skill | Purpose | Time Saved |
-|-------|---------|------------|
-| **SEO WordPress Manager** | Batch update Rank Math SEO metadata via GraphQL | Hours per week |
-| **Link Analyzer** | Find broken links, orphan pages, and linking issues | Comprehensive site audits |
+### Compatible With
 
-These skills are optimized for **WordPress + WooCommerce** sites running themes like **Shoptimizer** with **CommerceKit**.
+- **Rank Math SEO** (required)
+- **WooCommerce** (optional, for product SEO)
+- **Shoptimizer theme** & **CommerceKit**
+- Any WordPress theme using standard post meta
 
-## Why Skills Matter
-
-Claude Code skills are **model-invoked capabilities** - Claude automatically detects when to use them based on your conversation context.
-
-```
-You: "My WooCommerce product descriptions have terrible meta descriptions, can you help optimize them?"
-
-Claude: [Automatically activates SEO WordPress Manager skill]
-        "I'll help you batch-update your Rank Math SEO metadata for products. Let me first
-        fetch your products via GraphQL and show you a preview of the changes..."
-```
+---
 
 ## Quick Start
 
-### Installation
+### 1. Install Required WordPress Plugins
 
-```bash
-# Clone the repository
-git clone https://github.com/your-repo/claude-wpseo-skills.git
-cd claude-wpseo-skills
+| Plugin | Purpose |
+|--------|---------|
+| [WPGraphQL](https://wordpress.org/plugins/wp-graphql/) | Enables GraphQL API |
+| [Rank Math SEO](https://wordpress.org/plugins/seo-by-rank-math/) | Your SEO plugin |
+| [WPGraphQL for Rank Math](https://github.com/AxeWP/wp-graphql-rank-math) | Connects them |
+| [WPGraphQL WooCommerce](https://github.com/wp-graphql/wp-graphql-woocommerce) | For products (optional) |
 
-# Install Python dependencies
-pip install -r requirements.txt
+### 2. Add the GraphQL Mutation
 
-# Copy skills to Claude Code (global installation)
-cp -r skills/* ~/.claude/skills/
-cp -r shared ~/.claude/skills/
-```
-
-### Configuration
-
-```bash
-# Copy example config
-cp .env.example .env
-
-# Edit with your WordPress credentials
-WP_GRAPHQL_URL=https://your-site.com/graphql
-WP_USERNAME=your-username
-WP_APP_PASSWORD=xxxx xxxx xxxx xxxx
-```
-
-## Skills Overview
-
-### 1. SEO WordPress Manager
-
-Batch update Rank Math SEO fields (titles, meta descriptions, focus keyphrases) for posts and WooCommerce products via WordPress GraphQL API.
-
-**Key Features:**
-- Support for both **posts** and **WooCommerce products**
-- Preview changes before applying (dry-run by default)
-- Progress tracking with resume capability
-- Batch processing with rate limiting
-- Backup of original values
-- SEO score tracking
-
-**Requirements:**
-- WordPress 6.0+ with WPGraphQL plugin
-- Rank Math SEO + WPGraphQL for Rank Math extension
-- WPGraphQL WooCommerce (for product support)
-- Application Password for authentication
-
-**Example Usage:**
-```
-"Update meta descriptions for all products in the electronics category"
-"Fix SEO titles that are too long"
-"Add focus keyphrases to posts missing them"
-"Analyze SEO scores for all WooCommerce products"
-```
-
-[Full Documentation](docs/skills/SEO_WORDPRESS_MANAGER.md)
-
----
-
-### 2. Link Analyzer
-
-Comprehensive link analysis for WordPress sites - find broken links, orphan pages, and internal linking issues.
-
-**Key Features:**
-- Internal/external link extraction and validation
-- HTTP checking with false-positive filtering
-- **Link graph metrics** (the real value):
-  - Orphan pages (zero inbound links - critical SEO issue)
-  - Under-linked pages (missed ranking opportunities)
-  - Over-linked pages (link equity dilution)
-  - Link sinks (receive but don't pass links)
-
-**Example Usage:**
-```
-"Analyze my site's internal linking structure"
-"Find orphan pages that aren't linked from anywhere"
-"Check for broken external links"
-"Show me pages that receive links but don't pass them"
-```
-
-[Full Documentation](docs/skills/LINK_ANALYZER.md)
-
----
-
-## WordPress Setup
-
-### Required Plugins
-
-| Plugin | Purpose | Download |
-|--------|---------|----------|
-| WPGraphQL | GraphQL API for WordPress | [wordpress.org](https://wordpress.org/plugins/wp-graphql/) |
-| Rank Math SEO | SEO plugin | [wordpress.org](https://wordpress.org/plugins/seo-by-rank-math/) |
-| WPGraphQL for Rank Math | GraphQL + Rank Math integration | [GitHub](https://github.com/AxeWP/wp-graphql-rank-math) |
-| WPGraphQL WooCommerce | GraphQL + WooCommerce | [GitHub](https://github.com/wp-graphql/wp-graphql-woocommerce) |
-
-### Enable Mutations
-
-Add to your theme's `functions.php`:
+Add this to your theme's `functions.php`:
 
 ```php
 add_action('graphql_register_types', function() {
@@ -156,96 +85,132 @@ add_action('graphql_register_types', function() {
         ],
         'mutateAndGetPayload' => function($input) {
             $post_id = absint($input['postId']);
-
             if (!current_user_can('edit_post', $post_id)) {
                 throw new \GraphQL\Error\UserError('Permission denied');
             }
-
             if (isset($input['title'])) {
-                update_post_meta($post_id, 'rank_math_title',
-                    sanitize_text_field($input['title']));
+                update_post_meta($post_id, 'rank_math_title', sanitize_text_field($input['title']));
             }
             if (isset($input['description'])) {
-                update_post_meta($post_id, 'rank_math_description',
-                    sanitize_textarea_field($input['description']));
+                update_post_meta($post_id, 'rank_math_description', sanitize_textarea_field($input['description']));
             }
             if (isset($input['focusKeyword'])) {
-                update_post_meta($post_id, 'rank_math_focus_keyword',
-                    sanitize_text_field($input['focusKeyword']));
+                update_post_meta($post_id, 'rank_math_focus_keyword', sanitize_text_field($input['focusKeyword']));
             }
-
             return ['success' => true, 'post' => get_post($post_id)];
         }
     ]);
 });
 ```
 
-### Create Application Password
+### 3. Create Application Password
 
 1. WordPress Admin → Users → Your Profile
 2. Scroll to "Application Passwords"
 3. Name: "Claude SEO Manager"
-4. Click "Add New Application Password"
-5. Copy the generated password (shown once!)
+4. Click "Add New" and copy the password
 
-## Repository Structure
+### 4. Install the Skill
 
-```
-claude-wpseo-skills/
-├── README.md                    # You are here
-├── LICENSE                      # MIT License
-├── requirements.txt             # Python dependencies
-├── .env.example                 # Environment template
-│
-├── docs/                        # Documentation
-│   ├── skills/                 # Per-skill deep dives
-│   └── integration/            # Setup and troubleshooting
-│
-├── shared/                      # Shared utilities
-│   ├── config_loader.py        # Configuration management
-│   └── utils.py                # Progress tracking, JSON helpers
-│
-└── skills/                      # The skills themselves
-    ├── seo-wordpress-manager/
-    │   ├── SKILL.md            # Skill definition
-    │   ├── reference.md        # Rank Math fields reference
-    │   ├── config.example.json
-    │   └── scripts/
-    │       ├── wp_graphql_client.py
-    │       ├── analyze_seo.py
-    │       ├── preview_changes.py
-    │       └── rankmath_batch_updater.py
-    │
-    └── link-analyzer/
-        ├── SKILL.md
-        ├── reference.md
-        └── scripts/
-            ├── analyze.py
-            ├── outbound_links.py
-            ├── internal_links.py
-            └── link_graph.py
+```bash
+# Clone this repo
+git clone https://github.com/huge8888/claude-wpseo-skills.git
+cd claude-wpseo-skills
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Copy to Claude Code
+cp -r skills/* ~/.claude/skills/
+cp -r shared ~/.claude/skills/
+
+# Configure your credentials
+cp .env.example .env
+# Edit .env with your WordPress GraphQL URL and app password
 ```
 
-## Requirements
+### 5. Use It
 
-| Requirement | Version | Notes |
-|-------------|---------|-------|
-| Python | 3.10+ | For running analysis scripts |
-| Claude Code | Latest | CLI tool from Anthropic |
-| WordPress | 6.0+ | With WPGraphQL |
-| Rank Math SEO | 1.0.201+ | With WPGraphQL extension |
-| WooCommerce | Latest | Optional, for product SEO |
+Open Claude Code and just ask:
 
-## Rank Math SEO Meta Keys
+```
+"Analyze SEO issues for all my WooCommerce products"
+"Fix meta descriptions that are too short"
+"Add focus keywords to posts missing them"
+"Update product SEO titles to include the brand name"
+```
 
-| Field | Meta Key |
-|-------|----------|
+---
+
+## Features
+
+### SEO Analysis
+- Find posts/products with missing SEO titles
+- Detect meta descriptions that are too long (>160 chars) or too short (<120 chars)
+- Identify missing focus keywords
+- Track Rank Math SEO scores
+
+### Batch Updates
+- Update hundreds of posts/products in one go
+- Preview all changes before applying
+- Dry-run mode by default (safe!)
+- Progress tracking with resume capability
+- Automatic backup of original values
+
+### WooCommerce Support
+- Fetch products by category
+- Support for Simple and Variable products
+- Product-specific SEO recommendations
+
+---
+
+## Example Workflow
+
+```bash
+# 1. Analyze your site's SEO issues
+python skills/seo-wordpress-manager/scripts/analyze_seo.py --all --output analysis.json
+
+# 2. Review the analysis with Claude and generate improvements
+
+# 3. Preview the changes
+python skills/seo-wordpress-manager/scripts/preview_changes.py --input changes.json
+
+# 4. Apply the changes (after confirmation)
+python skills/seo-wordpress-manager/scripts/rankmath_batch_updater.py --input changes.json --apply
+```
+
+---
+
+## Rank Math Meta Keys Reference
+
+| Field | WordPress Meta Key |
+|-------|-------------------|
 | SEO Title | `rank_math_title` |
 | Meta Description | `rank_math_description` |
 | Focus Keyword | `rank_math_focus_keyword` |
 | Canonical URL | `rank_math_canonical_url` |
 | Robots | `rank_math_robots` |
 
+---
+
+## Requirements
+
+- Python 3.10+
+- WordPress 6.0+
+- Rank Math SEO 1.0.201+
+- WPGraphQL + WPGraphQL for Rank Math
+- Claude Code CLI
+
+---
+
 ## License
 
-MIT License - see [LICENSE](LICENSE) for details.
+MIT License - Use it however you want!
+
+---
+
+## Need Help?
+
+- Check the [full documentation](docs/README.md)
+- See [troubleshooting guide](docs/integration/TROUBLESHOOTING.md)
+- Open an issue on GitHub
